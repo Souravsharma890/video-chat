@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style2.css">
+    <title>Live Chat | Socket.io</title>
+<style>
+   
+</style>
+
+</head>
+<body>
+
+    <header class="nav-container">
+        <div class="logo"><a href="#"><img src="images/live-chat.png" alt=""></a></div>
+        <nav>
+        <ul class="nav-links">
+          <li><a href="#home" class="active">Home</a></li>
+          <li><a href="#meeting">Join Meeting</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+          <li><a href="#footer">Footer</a></li>
+        </ul>
+        <button class="login-btn"><a href="/login.html"> LOGIN </a></button>
+      </nav>
+      </header>
+
+  <!-- hero section  -->
+ <section class="banner hero" id="home">Home</section>
+
+  <!-- Join Meeting section  -->
+  <section class="meeting" id="meeting" >
+  Join Meeting
+  </section>
+
+  <!-- card section  -->
+<section class="card" id="services">
+  Services
+</section>
+
+ <!-- Contact Us section  -->
+<section class="contact" id="contact">
+  contact Us
+</section>
+
+  <!-- Login & Register form Section  -->
+<section class="footer" id="footer">
+  Login Form
+</section>
+
+
+
+
+
+      
+<script type="text/javascript">
+    window.addEventListener("scroll",function(){
+      var header = document.querySelector("header");
+      header.classList.toggle("sticky",window.scrollY > 0);
+    })
+  
+  
+    let section01 = document.querySelectorAll('section');
+    let navLink01 = document.querySelectorAll('header nav a');
+    window.onscroll =()=>{
+      section01.forEach(sec=>{
+        let top = window.scrollY;
+        let offset= sec.offsetTop - 150;
+        let height = sec.offsetHeight;
+        let id = sec.getAttribute('id');
+  
+        if(top >= offset && top < offset + height){
+          navLink01.forEach(links =>{
+            links.classList.remove('active');
+            document.querySelector('header nav a [href*=' +id + ']').classList.add('active');
+          })
+        }
+      })
+    }
+  </script>
+</body>
+</html>
